@@ -63,6 +63,9 @@ def buy_bundle(category, bundles, balance):
         # subtracting 1 since to correct enumerate function starting at 1 in show bundles function 
         bundle = bundles[index - 1]
         confirm = input(f"Proceed with purchase of {bundle["name"]} for Ksh {bundle["price"]}? (y/n) : ")
+        
+        # using strip to remove blank spaces from confirm input
+        confirm = confirm.strip()
 
         # using lower to standerdize input to lowercase
         if confirm.lower() == "y":
