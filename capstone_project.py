@@ -27,9 +27,21 @@ def main_menu():
     print("4. Check Balance")
     print("5. Exit")
     print("=" * 30)
-    choice = input(("Enter choice (1-5):"))
+    choice = input(("Enter choice (1-5): "))
     return choice
 
 
-main_menu()
-print(choice)
+def show_bundles(category, bundle):
+    print(f"--- {category.upper()} BUNDLES ---")
+    for i, bundle in enumerate(bundle, start=1):
+        print(f"{i}. {bundle["name"]} | Ksh {bundle["price"]} | Valid: {bundle["validity"]}")
+    print("0. Back to main menu")
+    print()
+    choice = input("Enter choice : ")
+    return choice
+
+
+
+
+# main_menu()
+
