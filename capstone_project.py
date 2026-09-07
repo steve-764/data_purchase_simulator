@@ -64,15 +64,16 @@ def buy_bundle(category, bundles, balance):
         bundle = bundles[index - 1]
         confirm = input(f"Proceed with purchase of {bundle["name"]} for Ksh {bundle["price"]}? (y/n) : ")
 
-        # using lower to standerdize input
+        # using lower to standerdize input to lowercase
         if confirm.lower() == "y":
-            # checking if current balance > price of bundle
+            # checking if balance >= bundle price
             if balance >= bundle["price"]:
                 balance -= bundle["price"]
                 print(f"Purchase of {bundle["name"]} successful! ")
                 print(f"Balance : Ksh {balance}")
             else:
                 print("Insufficient balance. Please top up.")
+                print(f"Current balance : Ksh {balance}")
         else:
             print("Purchase cancelled.")
     return balance
