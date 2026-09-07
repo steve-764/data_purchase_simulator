@@ -1,5 +1,4 @@
-# CAPSTONE PROJECT
-## Bundle Purchase Simulator (inspired by *544#)
+# Bundle Purchase Simulator (inspired by *544#)
 
 > **Note:** This is a simplified simulation for practice, not the exact live Safaricom menu — menu options and prices vary by line and change over time.
 
