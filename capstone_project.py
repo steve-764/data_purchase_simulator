@@ -41,6 +41,40 @@ def show_bundles(category, bundle):
     return choice
 
 
+def buy_bundle(category, bundles, balance):
+    while True:
+        choice = show_bundles(category, bundles)
+
+        if choice == "0":
+            break
+
+        try:
+            index = int(choice)
+            if index < 1 or index > len(bundles):
+                raise ValueError
+        except ValueError:
+            print("INvalid choice. Enter a valid option")
+            continue
+
+        bundle = bundles[index - 1]
+        confirm = input(f"Proceed with purchase of {bundle["name"]} for Ksh {bundle["price"]}? (y/n) : ")
+
+        if confirm.lower() == "y":
+            if balance >= bundle["price"]:
+                balance -= bundle["price"]
+                print(f"Purchase of {bundle["name"]} successful! ")
+                print(f"Balance : Ksh {balance:.2f}")
+            else:
+                print("Insufficient balance. Please top up.")
+        else:
+            print("Purchase cancelled.")
+
+    return balance
+
+
+def check_balance(balance):
+    print(f"Current balance : Ksh {balance}")
+
 
 
 # main_menu()
