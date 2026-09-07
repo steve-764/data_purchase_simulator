@@ -14,7 +14,7 @@ bundles = {
     ],
 }
  
-balance = 200.00   # starting airtime balance in Ksh
+balance = 200.00   # starting airtime balance
 
 def main_menu():
     print("=" * 30)
@@ -33,6 +33,7 @@ def main_menu():
 
 def show_bundles(category, bundle):
     print(f"--- {category.upper()} BUNDLES ---")
+    # loop through bundle dict
     for num, bundle in enumerate(bundle, start=1):
         print(f"{num}. {bundle["name"]} | Ksh {bundle["price"]} | Valid: {bundle["validity"]}")
     print("0. Back to main menu")
@@ -56,10 +57,10 @@ def buy_bundle(category, bundles, balance):
             if index < 1 or index > len(bundles):
                 raise ValueError
         except ValueError:
-            print("Ivalid choice. Enter a valid option")
+            print("Ivalid choice. Please enter a valid option")
             continue
 
-        # subtracting 1 since we used enumerate function satrting at 1 in show bundles function 
+        # subtracting 1 since to correct enumerate function starting at 1 in show bundles function 
         bundle = bundles[index - 1]
         confirm = input(f"Proceed with purchase of {bundle["name"]} for Ksh {bundle["price"]}? (y/n) : ")
 
@@ -86,6 +87,7 @@ def main():
     balance = 200.00
 
     while True:
+        # calling main menu function
         choice = main_menu()
 
         if choice == "1":
@@ -103,9 +105,6 @@ def main():
             print("Invalid choice. Enter a valid option.")
 
 
+# calling main function
 main()
-
-    
-
-
 
