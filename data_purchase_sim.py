@@ -21,11 +21,7 @@ def main_menu():
     print("           *544# ")
     print("=" * 30)
     print()
-    print("1. Buy Data Bundle")
-    print("2. Buy SMS Bundle")
-    print("3. Buy Minutes Bundles")
-    print("4. Check Balance")
-    print("5. Exit")
+    print(" 1. Buy Data Bundle \n 2. Buy SMS Bundle \n 3. Buy Minutes Bundles \n 4. Check Balance \n 5. Exit")
     print("=" * 30)
     choice = input(("Enter choice (1-5): "))
     return choice
@@ -68,7 +64,10 @@ def buy_bundle(category, bundles, balance):
         confirm = confirm.strip()
 
         # using lower to standerdize input to lowercase
-        if confirm.lower() == "y":
+        if confirm.lower() == "n":
+            print("Purchase cancelled.")
+            
+        else:
             # checking if balance >= bundle price
             if balance >= bundle["price"]:
                 balance -= bundle["price"]
@@ -77,8 +76,6 @@ def buy_bundle(category, bundles, balance):
             else:
                 print("Insufficient balance. Please top up.")
                 print(f"Current balance : Ksh {balance}")
-        else:
-            print("Purchase cancelled.")
     return balance
 
 
